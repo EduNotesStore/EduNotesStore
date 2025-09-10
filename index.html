@@ -1,4 +1,4 @@
-!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -287,4 +287,224 @@
             opacity: 0.9;
         }
         
-        .payment-portal {
+        .payment-portal {display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .payment-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #777;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #ff4757;
+        }
+        
+        .payment-content h2 {
+            text-align: center;
+            color: #2575fc;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #6a11cb;
+            outline: none;
+        }
+        
+        .pay-now-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pay-now-btn:hover {
+            opacity: 0.9;
+        }
+        
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .note-card h3 {
+                padding-right: 0;
+            }
+            
+            .cart-sidebar {
+                width: 300px;
+            }
+            
+            .coming-soon {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">EduNoteStore</div>
+            <div class="cart-icon" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </header>
+        
+        <p class="tagline">Premium Chemistry Notes - Master Your Exams</p>
+        <p class="coming-soon">More Notes Coming Soon!</p>
+        
+        <div class="hero">
+            <h1>Chemistry Mastery Notes</h1>
+            <p>Access high-quality handwritten formula sheets for chemistry. Created by top educators to help you excel in exams.</p>
+        </div>
+        
+        <div class="notes-grid">
+            <div class="note-card" id="kinetics"> 
+                <div class="price-tag">₹499</div>.               
+                <div class="note-content">
+                    <h3>Chemistry - Kinetics</h3>
+                    <p>Detailed reaction kinetics notes with graphs, formulas, and examples. Perfect for exam preparation.</p>
+                    <div class="note-preview">
+                        <h4>Formula Sheet Preview:</h4>
+                        <p>Yav: Average Rate of Reaction<br>
+                        Yinst: Instantenous Rate of Reaction<br>
+                        Avg. rate = -Δ[R]/Δt<br>
+                        Unit of rate: mol.L⁻¹.s⁻¹<br>
+                        Rate law: Rate = k[A]ˣ[B]ʸ<br>
+                        Integrated Rate Equations for Zero & First Order</p>
+                    </div>
+                    <div class="note-actions">
+                        <button class="add-to-cart-btn" data-id="kinetics" data-name="Chemistry - Kinetics" data-price="499">Add to Cart</button>
+                        <button class="download-btn" data-id="kinetics">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="note-card" id="electrochemistry">
+                <div class="price-tag">₹499</div>
+                <div class="note-content">
+                    <h3>Electrochemistry - Formula Sheet</h3>
+                    <p>All important formulas, reactions, and concepts summarized in one place. Quick revision guide.</p>
+                    <div class="note-preview">
+                        <h4>Formula Sheet Preview:</h4>
+                        <p>E°cell = E°cathode - E°anode<br>
+                        ΔG° = -nFE°cell<br>
+                        Nernst Equation: E = E° - (0.059/n) log Q<br>
+                        E°cell = (0.059/n) log Kc<br>
+                        Conductivity (κ) = 1/ρ<br>
+                        Molar Conductivity: Λm = (κ × 1000)/C<br>
+                        Faraday's Laws of Electrolysis</p>
+                    </div>
+                    <div class="note-actions">
+                        <button class="add-to-cart-btn" data-id="electrochemistry" data-name="Electrochemistry - Formula Sheet" data-price="499">Add to Cart</button>
+                        <button class="download-btn" data-id="electrochemistry">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <span class="close-cart" id="close-cart">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be added here -->
+        </div>
+        <div class="cart-total" id="cart-total">
+            Total: ₹0
+        </div>
+        <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+    </div>
+    
+    <div class="payment-portal" id="payment-portal">
+        <div class="payment-content">
+            <span class="close-btn" id="close-payment">&times;</span>
+            <h2>Complete Your Purchase</h2>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            
+            <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+            </div>
+            
+            <div class="form-group" style="display: flex; gap: 15px;">
+                <div style="flex: 1;">
+                    <label for="expiry">Expiry Date</label>
+                    <input type="text" id="expiry" placeholder="MM/YY">
+                </div>
+                <div style="flex: 1;">
